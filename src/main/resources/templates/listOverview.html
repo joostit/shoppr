@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:sec="https://www.thymeleaf.org"
+      xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Lists</title>
+</head>
+<body>
+
+    <h1>Shopping lists</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+        </tr>
+        <tr th:each="shoppingList: ${allLists}">
+            <td th:text="${shoppingList.name}"></td>
+<!--            <td><a th:href="@{/copy/add/t/{bookTitle}(bookTitle=${book.title})}">Add</a></td>-->
+        </tr>
+    </table>
+
+</body>
+</html>
