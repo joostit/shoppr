@@ -31,6 +31,9 @@ public class ShoppingListServiceMySql implements ShoppingListService {
         return toShoppingListDto(models);
     }
 
+    public void addNew(ShoppingList list){
+        shoppingListRepository.save(list);
+    }
 
     private List<ShoppingListDto> toShoppingListDto(List<ShoppingList> models){
 

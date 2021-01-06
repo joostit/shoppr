@@ -31,7 +31,6 @@ public class ShoppingList {
         this.name = name;
     }
 
-
     public List<ListItem> getItems() {
         return Items;
     }
@@ -40,5 +39,12 @@ public class ShoppingList {
         Items = items;
     }
 
+    public ShoppingList(){
+
+    }
+
+    public ShoppingList(String name){
+        this.name = name;
+    }
 
 }

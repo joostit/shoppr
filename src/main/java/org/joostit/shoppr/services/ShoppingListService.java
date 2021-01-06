@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface ShoppingListService {
     List<ShoppingListDto> GetAll();
+
+    void addNew(ShoppingList list);
 }

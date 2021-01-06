@@ -13,8 +13,8 @@ $(document).ready(function () {
 
 function fire_ajax_submit() {
 
-    var search = {}
-    search["username"] = $("#username").val();
+    var searchData = {}
+    searchData["keywords"] = $("#keywords").val();
 
     $("#btn-search").prop("disabled", true);
 
@@ -22,17 +22,18 @@ function fire_ajax_submit() {
         type: "POST",
         contentType: "application/json",
         url: "/api/getLists",
-        data: JSON.stringify(search),
+        data: JSON.stringify(searchData),
         dataType: 'json',
         cache: false,
-        timeout: 600000,
-        success: function (data) {
+        timeout: 6000,
+        success: function (resultData) {
 
-            var json = "<h4>Ajax Response</h4>&lt;pre&gt;"
-                + JSON.stringify(data, null, 4) + "&lt;/pre&gt;";
+            var json = "<h4>Ajax Response</h4>"
+                + JSON.stringify(resultData, null, 4);
             $('#feedback').html(json);
 
-            console.log("SUCCESS : ", data);
+            console.log("POST: ", searchData);
+            console.log("SUCCESS : ", resultData);
             $("#btn-search").prop("disabled", false);
 
         },
