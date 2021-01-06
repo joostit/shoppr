@@ -17,7 +17,7 @@ public class ListOverviewController {
     }
 
 
-    @GetMapping("/")
+    @GetMapping("/bla")
     protected String showAuthors(Model model) {
         model.addAttribute("allLists", shoppingLists.GetAll());
         return "listOverview";

@@ -17,6 +17,7 @@ public class ShopprSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/styles/css/**").permitAll()
                 .antMatchers("/", "/home").permitAll()
                 .antMatchers("/", "/index").permitAll()
+                .antMatchers("/", "/bla").permitAll()
                 .antMatchers("/", "/layout").permitAll()
                 .antMatchers("/", "/error").permitAll()
                 .antMatchers("/", "/about").permitAll()
