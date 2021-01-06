@@ -14,21 +14,26 @@ public class ShopprSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/styles/css/**").permitAll()
-                .antMatchers("/", "/home").permitAll()
-                .antMatchers("/", "/index").permitAll()
-                .antMatchers("/", "/bla").permitAll()
-                .antMatchers("/", "/layout").permitAll()
-                .antMatchers("/", "/error").permitAll()
-                .antMatchers("/", "/about").permitAll()
-                .anyRequest().authenticated()
-                .and()
+                    .antMatchers("/styles/css/**").permitAll()
+                    .antMatchers("/", "/home").permitAll()
+                    .antMatchers("/", "/index").permitAll()
+                    .antMatchers("/", "/bla").permitAll()
+                    .antMatchers("/", "/layout").permitAll()
+                    .antMatchers("/", "/error").permitAll()
+                    .antMatchers("/", "/login").permitAll()
+                    .antMatchers("/", "/about").permitAll()
+                    .antMatchers("/", "/api/getLists").permitAll()
+                    .anyRequest().authenticated()
+                    .and()
                 .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .and()
+                    //.loginPage("/login")
+                    .permitAll()
+                    .and()
                 .logout()
-                .permitAll();
+                    .permitAll()
+                    .and()
+                .csrf()
+                    .disable().cors();
 
     }
 
@@ -37,6 +42,6 @@ public class ShopprSecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) {
         web
                 .ignoring()
-                .antMatchers("/resources/**", "/static/**","/webjars/**");
+                .antMatchers("/resources/**", "/static/**", "/webjars/**", "/js/**");
     }
 }

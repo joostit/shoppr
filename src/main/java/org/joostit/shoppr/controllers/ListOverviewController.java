@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ListOverviewController {
 
-    private ShoppingListService shoppingLists;
+    private final ShoppingListService shoppingLists;
 
     @Autowired
-    public ListOverviewController(ShoppingListService shoppingLists){
+    public ListOverviewController(ShoppingListService shoppingLists) {
         this.shoppingLists = shoppingLists;
     }
 
@@ -21,5 +21,11 @@ public class ListOverviewController {
     protected String showAuthors(Model model) {
         model.addAttribute("allLists", shoppingLists.GetAll());
         return "listOverview";
+    }
+
+
+    @GetMapping("/")
+    protected String index(Model model) {
+        return "listOverviewAjax";
     }
 }

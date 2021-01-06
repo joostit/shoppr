@@ -8,6 +8,8 @@ import javax.persistence.*;
 @Entity
 public class ListItem {
 
+    private String name;
+
     @javax.persistence.Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer listItemId;
@@ -35,4 +37,11 @@ public class ListItem {
         this.listItemId = listItemId;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
