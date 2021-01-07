@@ -16,12 +16,13 @@ $(document).ready(function () {
 
 function fire_ajax_submit() {
 
-    var searchData = {}
+    var searchData = {};
     searchData["keywords"] = $("#keywordsBox").val();
 
     $("#btn-search").prop("disabled", true);
 
-    $.ajax({
+    $.ajax(
+        {
         type: "POST",
         contentType: "application/json",
         url: "/api/getLists",
@@ -29,12 +30,12 @@ function fire_ajax_submit() {
         dataType: 'json',
         cache: false,
         timeout: 6000,
+
         success: function (resultData) {
 
             var json = "<h4>Ajax Response</h4>"
                 + JSON.stringify(resultData, null, 4);
             $('#feedback').html(json);
-
 
             fillTable(resultData)
 
@@ -43,6 +44,7 @@ function fire_ajax_submit() {
             $("#btn-search").prop("disabled", false);
 
         },
+
         error: function (e) {
 
             var json = "<h4>Ajax Response</h4>&lt;pre&gt;"
@@ -61,7 +63,8 @@ function fillTable(data){
 
     let new_tbody = document.createElement('tbody');
 
-    data.lists.forEach(shoppingList =>{
+    data.lists.forEach(shoppingList => {
+
         let text = document.createTextNode(shoppingList.name);
 
         let tr = document.createElement('tr');
@@ -69,12 +72,12 @@ function fillTable(data){
         let td = document.createElement('td');
 
         td.appendChild(text);
-        tr.appendChild((td));
+        tr.appendChild(td);
 
         new_tbody.append(tr);
     });
 
-    let old_tbody =  document.getElementById("resultTable").tBodies.item(0);
+    let old_tbody = document.getElementById("resultTable").tBodies.item(0);
     document.getElementById("resultTable").replaceChild(new_tbody, old_tbody)
 
 
