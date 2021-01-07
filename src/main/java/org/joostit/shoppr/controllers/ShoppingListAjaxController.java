@@ -26,14 +26,12 @@ public class ShoppingListAjaxController {
         this.shoppingListsService = shoppingLists;
     }
 
-
     @PostMapping("/api/getLists")
     public ResponseEntity<?> getSearchResultViaAjax(@Valid @RequestBody ListSearchCriteriaDto search, Errors errors) {
 
         ShoppingListsAjaxResponse result = new ShoppingListsAjaxResponse();
 
         if (errors.hasErrors()) {
-
             result.setMsg(errors.getAllErrors()
                     .stream().map(x -> x.getDefaultMessage())
                     .collect(Collectors.joining(",")));
@@ -41,13 +39,21 @@ public class ShoppingListAjaxController {
             return ResponseEntity.badRequest().body(result);    // HTTP 400
         }
 
-        List<ShoppingListDto> lists = shoppingListsService.GetAll();
+        List<ShoppingListDto> lists;
+
+        if(search.getKeywords() != null && search.getKeywords().trim().isEmpty()) {
+            lists = shoppingListsService.GetAll();
+        }
+        else{
+            lists = shoppingListsService.findByNameContains(search.getKeywords());
+        }
 
         result.setLists(lists);
 
         return ResponseEntity.ok(result);
 
     }
+
 
 
 }

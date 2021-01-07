@@ -28,14 +28,20 @@ public class ShoppingListServiceMySql implements ShoppingListService {
 
         List<ShoppingList> models = shoppingListRepository.findAll();
 
-        return toShoppingListDto(models);
+        return toShoppingListDtos(models);
     }
 
     public void addNew(ShoppingList list){
         shoppingListRepository.save(list);
     }
 
-    private List<ShoppingListDto> toShoppingListDto(List<ShoppingList> models){
+    public List<ShoppingListDto> findByNameContains(String keyword){
+        List<ShoppingList> found = shoppingListRepository.findByNameContains(keyword);
+
+        return toShoppingListDtos(found);
+    }
+
+    private List<ShoppingListDto> toShoppingListDtos(List<ShoppingList> models){
 
         List<ShoppingListDto> result = new ArrayList<>();
 
