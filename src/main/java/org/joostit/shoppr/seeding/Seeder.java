@@ -1,6 +1,7 @@
 package org.joostit.shoppr.seeding;
 
 import org.joostit.shoppr.models.ShoppingList;
+import org.joostit.shoppr.services.Impl.UserDetailsServiceImpl;
 import org.joostit.shoppr.services.ShoppingListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -12,15 +13,25 @@ public class Seeder {
 
     private ShoppingListService shoppingListService;
 
+    private UserDetailsServiceImpl userService;
+
     @Autowired
-    public Seeder(ShoppingListService shoppingListService){
+    public Seeder(ShoppingListService shoppingListService, UserDetailsServiceImpl userService){
         this.shoppingListService = shoppingListService;
+        this.userService = userService;
     }
 
 
     @EventListener
     public void seed(ContextRefreshedEvent event) {
         seedShoppingLists();
+        seedUsers();
+    }
+
+    private void seedUsers() {
+
+        userService.addUser("tester", "test", "ADMIN");
+
     }
 
     private void seedShoppingLists() {

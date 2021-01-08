@@ -17,7 +17,7 @@ public class ListOverviewController {
     }
 
 
-    @GetMapping("/thymeleafonly")
+    @GetMapping("/list")
     protected String showAuthors(Model model) {
         model.addAttribute("allLists", shoppingListsService.GetAll());
         return "listOverview";

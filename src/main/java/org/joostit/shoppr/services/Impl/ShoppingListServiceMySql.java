@@ -36,8 +36,6 @@ public class ShoppingListServiceMySql implements ShoppingListService {
     }
 
 
-
-
     public List<ShoppingListDto> findByNameContains(String keyword){
         List<ShoppingList> found = shoppingListRepository.findByNameContains(keyword);
 
