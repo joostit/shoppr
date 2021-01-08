@@ -35,11 +35,17 @@ public class ShoppingListServiceMySql implements ShoppingListService {
         shoppingListRepository.save(list);
     }
 
+
+
+
     public List<ShoppingListDto> findByNameContains(String keyword){
         List<ShoppingList> found = shoppingListRepository.findByNameContains(keyword);
 
         return toShoppingListDtos(found);
     }
+
+
+
 
     private List<ShoppingListDto> toShoppingListDtos(List<ShoppingList> models){
 
@@ -64,20 +70,20 @@ public class ShoppingListServiceMySql implements ShoppingListService {
         return result;
     }
 
-    private List<ShoppingListDto> toListItemDto(List<ListItem> items) {
-        List<ShoppingListDto> result = new ArrayList<>();
+    private List<ListItemDto> toListItemDto(List<ListItem> items) {
+        List<ListItemDto> result = new ArrayList<>();
 
         for(ListItem model: items){
-            ShoppingListDto dto = toDto(model);
+            ListItemDto dto = toDto(model);
             result.add(dto);
         }
 
         return result;
     }
 
-    private ShoppingListDto toDto(ListItem model) {
+    private ListItemDto toDto(ListItem model) {
 
-        ShoppingListDto result = new ShoppingListDto();
+        ListItemDto result = new ListItemDto();
         result.setName(model.getName());
         return result;
     }

@@ -5,7 +5,8 @@ import java.util.List;
 public class ShoppingListDto {
 
     private String name;
-    private List<ShoppingListDto> items;
+
+    private List<ListItemDto> items;
 
     public String getName() {
         return name;
@@ -15,11 +16,11 @@ public class ShoppingListDto {
         this.name = name;
     }
 
-    public List<ShoppingListDto> getItems() {
+    public List<ListItemDto> getItems() {
         return items;
     }
 
-    public void setItems(List<ShoppingListDto> items) {
+    public void setItems(List<ListItemDto> items) {
         this.items = items;
     }
 

@@ -9,17 +9,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ListOverviewController {
 
-    private final ShoppingListService shoppingLists;
+    private final ShoppingListService shoppingListsService;
 
     @Autowired
     public ListOverviewController(ShoppingListService shoppingLists) {
-        this.shoppingLists = shoppingLists;
+        this.shoppingListsService = shoppingLists;
     }
 
 
     @GetMapping("/bla")
     protected String showAuthors(Model model) {
-        model.addAttribute("allLists", shoppingLists.GetAll());
+        model.addAttribute("allLists", shoppingListsService.GetAll());
         return "listOverview";
     }
 

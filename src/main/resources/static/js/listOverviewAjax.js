@@ -78,6 +78,7 @@ function fillTable(data){
     });
 
     let old_tbody = document.getElementById("resultTable").tBodies.item(0);
+
     document.getElementById("resultTable").replaceChild(new_tbody, old_tbody)
 
 
