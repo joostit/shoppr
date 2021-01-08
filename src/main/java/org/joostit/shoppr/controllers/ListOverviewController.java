@@ -17,13 +17,14 @@ public class ListOverviewController {
     }
 
 
-    @GetMapping("/bla")
+    @GetMapping("/thymeleafonly")
     protected String showAuthors(Model model) {
         model.addAttribute("allLists", shoppingListsService.GetAll());
         return "listOverview";
     }
 
 
+    // Serves a webpage without thymeleaf code, that uses AJAX to search for shopping lists
     @GetMapping("/")
     protected String index(Model model) {
         return "listOverviewAjax";
