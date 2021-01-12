@@ -36,7 +36,7 @@ public class Seeder {
 
     private void seedShoppingLists() {
 
-        if(shoppingListService.GetAll().size() == 0){
+        if(shoppingListService.getAll().size() == 0){
             shoppingListService.addNew(new ShoppingList("Groceries"));
             shoppingListService.addNew(new ShoppingList("Makro"));
             shoppingListService.addNew(new ShoppingList("Kruidvat"));

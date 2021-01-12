@@ -6,9 +6,9 @@ import org.joostit.shoppr.models.ShoppingList;
 import java.util.List;
 
 public interface ShoppingListService {
-    List<ShoppingListDto> GetAll();
+    List<ShoppingListDto> getAll();
 
-    void addNew(ShoppingList list);
+    ShoppingList addNew(ShoppingList list);
 
     List<ShoppingListDto> findByNameContains(String keyword);
 }

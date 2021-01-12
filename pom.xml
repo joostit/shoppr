@@ -101,10 +101,12 @@
 
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
 
 		<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -112,10 +114,11 @@
                 <version>2.22.2</version>
                 <configuration>
                     <includes>
-                        <include>com/joost/testing/unittesting/**</include>
+                        <include>org/joostit/shoppr/testing/unittesting/**</include>
                     </includes>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 
@@ -130,7 +133,7 @@
                         <version>2.22.2</version>
                         <configuration>
                             <includes>
-                                <include>org/joostit/testing/componenttesting/**</include>
+                                <include>org/joostit/shoppr/testing/componenttesting/**</include>
                             </includes>
                         </configuration>
                     </plugin>
@@ -148,7 +151,7 @@
                         <version>2.22.2</version>
                         <configuration>
                             <includes>
-                                <include>org/joostit/testing/integrationtesting/**</include>
+                                <include>org/joostit/shoppr/testing/integrationtesting/**</include>
                             </includes>
                         </configuration>
                     </plugin>

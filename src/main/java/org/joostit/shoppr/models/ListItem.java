@@ -20,6 +20,14 @@ public class ListItem {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private ShoppingList shoppingList;
 
+    public ListItem() {
+
+
+    }
+
+    public ListItem(String name){
+        this.name = name;
+    }
 
     public ShoppingList getShoppingList() {
         return shoppingList;

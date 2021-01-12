@@ -8,6 +8,14 @@ public class ShoppingListDto {
 
     private List<ListItemDto> items;
 
+    public ShoppingListDto(String name){
+        this.name = name;
+    }
+
+    public ShoppingListDto(){
+
+    }
+
     public String getName() {
         return name;
     }

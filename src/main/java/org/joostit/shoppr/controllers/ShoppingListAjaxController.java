@@ -42,7 +42,7 @@ public class ShoppingListAjaxController {
         List<ShoppingListDto> lists;
 
         if(search.getKeywords() != null && search.getKeywords().trim().isEmpty()) {
-            lists = shoppingListsService.GetAll();
+            lists = shoppingListsService.getAll();
         }
         else{
             lists = shoppingListsService.findByNameContains(search.getKeywords());

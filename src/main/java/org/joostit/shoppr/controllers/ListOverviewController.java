@@ -19,7 +19,7 @@ public class ListOverviewController {
 
     @GetMapping("/list")
     protected String showAuthors(Model model) {
-        model.addAttribute("allLists", shoppingListsService.GetAll());
+        model.addAttribute("allLists", shoppingListsService.getAll());
         return "listOverview";
     }
 

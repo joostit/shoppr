@@ -1,6 +1,7 @@
 package org.joostit.shoppr.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,7 +14,7 @@ public class ShoppingList {
     private String name;
 
     @OneToMany(mappedBy = "shoppingList")
-    private List<ListItem> Items;
+    private List<ListItem> Items = new ArrayList<>();
 
     public Integer getShoppingListId() {
         return shoppingListId;

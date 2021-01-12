@@ -8,8 +8,10 @@
 </head>
 <body>
 
-    <h2 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h2>
-    <form th:action="@{/logout}" method="post">
+Welcome: <span sec:authentication="name">Username</span>
+Roles: <span sec:authentication="principal.authorities">Roles</span>
+
+<form th:action="@{/logout}" method="post">
         <input type="submit" value="logout">
     </form>
     <h1>Shopping lists</h1>
