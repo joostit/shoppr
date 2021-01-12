@@ -14,7 +14,7 @@ before_install:
 
 script: 
     - >
-        mvn clean install && 
+        bash scripts/build.sh && 
         mvn test -Pcomponent-tests surefire:test &&
         mvn test -Pintegration-tests surefire:test
 
