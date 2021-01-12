@@ -52,7 +52,7 @@ public class ShoppingListDtoConverterTests {
 
         assertThat(dto.getItems().size()).isEqualTo(2);
         assertThat(dto.getItems().get(0).getName()).isEqualTo("item0");
-        assertThat(dto.getItems().get(1).getName()).isEqualTo("item1");
+        assertThat(dto.getItems().get(1).getName()).isEqualTo("item1X");
     }
 
 
