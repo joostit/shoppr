@@ -57,7 +57,7 @@ public class ShoppingListDtoConverterTests {
 
 
     @Test
-    void TesttoShoppingListDtos(){
+    void TestToShoppingListDtos(){
         ShoppinglistConverter converter = new ShoppinglistConverter();
 
         List<ShoppingList> items = new ArrayList<>();

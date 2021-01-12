@@ -27,16 +27,12 @@ public class ShoppingListServiceTests {
 
     @BeforeEach
     void initTestCase() {
-        System.out.println("initTestCase");
         listRepo = Mockito.mock(ShoppingListRepository.class);
         listService = new ShoppingListServiceMySql(listRepo);
     }
 
     @Test
     void addNewReturnsValidListObject() {
-
-        System.out.println("addNewReturnsValidListObject");
-
         ShoppingList listToSave = new ShoppingList("testList");
         when(listRepo.save(any(ShoppingList.class))).then(returnsFirstArg());
         ShoppingList savedList = listService.addNew(listToSave);
@@ -46,9 +42,6 @@ public class ShoppingListServiceTests {
 
     @Test
     void getAllReturnsAllShoppingLists() {
-
-        System.out.println("getAllReturnsAllShoppingLists");
-
         List<ShoppingList> fakeShoppingLists = new ArrayList<>();
         fakeShoppingLists.add(new ShoppingList("list0"));
         fakeShoppingLists.add(new ShoppingList("list1"));
@@ -60,7 +53,6 @@ public class ShoppingListServiceTests {
         assertThat(result.size()).isEqualTo(2);
         assertThat(result.get(0).getName()).isEqualTo("list0");
         assertThat(result.get(1).getName()).isEqualTo("list1");
-
     }
 
 }
