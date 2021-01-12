@@ -3,7 +3,7 @@ package org.joostit.shoppr.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "shopprUsers")
 public class User {
 
     @Id

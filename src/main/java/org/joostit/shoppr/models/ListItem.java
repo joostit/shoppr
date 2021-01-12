@@ -22,7 +22,6 @@ public class ListItem {
 
     public ListItem() {
 
-
     }
 
     public ListItem(String name){

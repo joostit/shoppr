@@ -48,7 +48,7 @@ public class UserPersistenceTests {
         assertThat(found.getRole()).isEqualTo(role);
 
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        assertThat(encoder.matches(pw, found.getPassword())).isTrue();
+        assertThat(encoder.matches(pw + "2", found.getPassword())).isTrue();
 
 
     }
