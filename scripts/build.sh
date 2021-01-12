@@ -1,4 +1,5 @@
 #!/bin/bash
 
-echo Build script started
+echo
+echo Running build script
 mvn clean install

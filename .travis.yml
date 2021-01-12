@@ -15,7 +15,7 @@ before_install:
 script: 
     - >
         bash scripts/build.sh && 
-        mvn test -Pcomponent-tests surefire:test &&
-        mvn test -Pintegration-tests surefire:test
+        bash scripts/componenttests.sh && 
+        bash scripts/integrationtests.sh
 
 
