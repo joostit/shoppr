@@ -28,6 +28,14 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'verify'
 
+- task: Maven@3
+  displayName: Build Docker image
+  inputs:
+    mavenPomFile: 'pom.xml'
+    goals: 'spring-boot:build-image'
+    publishJUnitResults: false
+    jdkVersionOption: '1.11'
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
