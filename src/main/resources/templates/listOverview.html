@@ -21,7 +21,7 @@ Roles: <span sec:authentication="principal.authorities">Roles</span>
         </tr>
         <tr th:each="shoppingList: ${allLists}">
             <td th:text="${shoppingList.name}"></td>
-<!--            <td><a th:href="@{/copy/add/t/{bookTitle}(bookTitle=${book.title})}">Add</a></td>-->
+            <!--<td><a th:href="@{/copy/add/t/{bookTitle}(bookTitle=${book.title})}">Add</a></td> -->
         </tr>
     </table>
 

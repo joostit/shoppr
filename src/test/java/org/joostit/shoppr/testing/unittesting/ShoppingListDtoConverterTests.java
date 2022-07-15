@@ -16,11 +16,15 @@ public class ShoppingListDtoConverterTests {
 
     @Test
     void TestToListItemToDto(){
+
+        // Arrange
         ShoppinglistConverter converter = new ShoppinglistConverter();
         ListItem itemModel = new ListItem("item");
 
+        // Act
         ListItemDto dto = converter.toDto(itemModel);
 
+        // Assert
         assertThat(dto.getName()).isEqualTo("item");
     }
 

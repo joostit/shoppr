@@ -23,11 +23,11 @@ public class ListOverviewController {
         return "listOverview";
     }
 
-    
 
     // Serves a webpage without thymeleaf code, that uses AJAX to search for shopping lists
     @GetMapping("/")
     protected String index(Model model) {
         return "listOverviewAjax";
     }
+
 }
