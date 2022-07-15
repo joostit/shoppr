@@ -27,7 +27,7 @@ steps:
 #    jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/UnitTests-*.xml'
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'verify'
 
 - task: Maven@3
@@ -39,7 +39,7 @@ steps:
 #    jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/UnitTests-*.xml'
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'test -Pcomponent-tests surefire:test'
   
 - task: CopyFiles@2
