@@ -61,7 +61,7 @@ steps:
     SqlFile: '$(system.defaultworkingdirectory)/sql/test_db_init.sql'
     ServerName: 'dbmysql-shoppr.mysql.database.azure.com'
     SqlUsername: 'joost'
-    SqlPassword: 'DuoDiscus!'
+    SqlPassword: '$(SqlPassword)' 
 
 - task: CopyFiles@2
   displayName: 'Copy Build result Artifact staging directory'
