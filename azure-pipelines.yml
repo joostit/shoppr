@@ -30,6 +30,27 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'verify'
+  
+
+- task: MysqlDeploymentOnMachineGroup@1
+  displayName: 'Initialize Test database'
+  inputs:
+    TaskNameSelector: 'SqlTaskFile'
+    SqlFile: '$(system.defaultworkingdirectory)/sql/test_db_init.sql'
+    ServerName: 'dbmysql-shoppr.mysql.database.azure.com'
+    SqlUsername: 'joost'
+    SqlPassword: '$(SqlPassword)' 
+
+- task: AzurePowerShell@5
+  displayName: 'Set database connection environment variables'
+  inputs:
+    azureSubscription: 'DevOats PayAsYouGo(a6ccd3e2-f860-4a50-bd62-6d80a0e20e62)'
+    ScriptType: 'InlineScript'
+    Inline: |
+      $Env:ShopprDdlAuto = 'create-drop'
+      $Env:ShopprDbUser = 'shopprtestuser'
+      $Env:ShopprDbUserPw = 'ShopprUserTestPassword'
+      $Env:ShopprDbName = 'db_shoppr_test'
 
 - task: Maven@3
   enabled: false
@@ -43,19 +64,9 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'test -Pcomponent-tests surefire:test'
-  
-- task: AzureMysqlDeployment@1
-  enabled: false
-  inputs:
-    azureSubscription: 'DevOats PayAsYouGo(a6ccd3e2-f860-4a50-bd62-6d80a0e20e62)'
-    ServerName: 'dbmysql-shoppr.mysql.database.azure.com'
-    SqlUsername: 'joost'
-    SqlPassword: 'DuoDiscus!'
-    TaskNameSelector: 'SqlTaskFile'
-    SqlFile: '$(system.defaultworkingdirectory)/sql/test_db_init.sql'
-    IpDetectionMethod: 'AutoDetect'
 
 - task: MysqlDeploymentOnMachineGroup@1
+  displayName: 'Delete test database'
   inputs:
     TaskNameSelector: 'SqlTaskFile'
     SqlFile: '$(system.defaultworkingdirectory)/sql/test_db_init.sql'
