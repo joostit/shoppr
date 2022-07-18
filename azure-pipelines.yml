@@ -27,10 +27,11 @@ steps:
 #    jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
-#    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'verify'
 
 - task: Maven@3
+  enabled: false
   displayName: 'Component tests'
   inputs:
     mavenPomFile: 'pom.xml'
