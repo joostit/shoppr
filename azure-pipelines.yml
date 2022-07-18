@@ -44,6 +44,7 @@ steps:
     goals: 'test -Pcomponent-tests surefire:test'
   
 - task: AzureMysqlDeployment@1
+  enabled: false
   inputs:
     azureSubscription: 'DevOats PayAsYouGo(a6ccd3e2-f860-4a50-bd62-6d80a0e20e62)'
     ServerName: 'dbmysql-shoppr.mysql.database.azure.com'
@@ -53,6 +54,13 @@ steps:
     SqlFile: 'sql/test_db_init.sql'
     IpDetectionMethod: 'AutoDetect'
 
+- task: MysqlDeploymentOnMachineGroup@1
+  inputs:
+    TaskNameSelector: 'SqlTaskFile'
+    SqlFile: 'sql/test_db_init.sql'
+    ServerName: 'dbmysql-shoppr.mysql.database.azure.com'
+    SqlUsername: 'joost'
+    SqlPassword: 'DuoDiscus!'
 
 - task: CopyFiles@2
   displayName: 'Copy Build result Artifact staging directory'
