@@ -46,7 +46,7 @@ steps:
 - task: AzureMysqlDeployment@1
   inputs:
     azureSubscription: 'DevOps PayAsYouGo Shoppr'
-    ServerName: 'dbmysql-shoppr.mysql.database.azure.com'
+    ServerName: 'dbmysql-shoppr'
     SqlUsername: 'joost'
     SqlPassword: 'DuoDiscus!'
     TaskNameSelector: 'SqlTaskFile'
