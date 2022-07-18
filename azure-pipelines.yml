@@ -20,15 +20,14 @@ steps:
 
 - task: Maven@3
   displayName: 'Build & Unit tests'
-  enabled: false
+  enabled: true
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-#    jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+#    testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'verify'
   
 
@@ -41,25 +40,14 @@ steps:
     SqlUsername: 'joost'
     SqlPassword: '$(SqlPassword)' 
 
-- task: AzurePowerShell@5
-  displayName: 'Set database connection environment variables'
-  inputs:
-    azureSubscription: 'DevOats PayAsYouGo(a6ccd3e2-f860-4a50-bd62-6d80a0e20e62)'
-    ScriptType: 'InlineScript'
-    Inline: |
-      $Env:ShopprDdlAuto = 'create-drop'
-      $Env:ShopprDbUser = 'shopprtestuser'
-      $Env:ShopprDbUserPw = 'ShopprUserTestPassword'
-      $Env:ShopprDbName = 'db_shoppr_test'
 
 - task: Maven@3
-  enabled: false
+  enabled: true
   displayName: 'Component tests'
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-#    jdkVersionOption: '1.8'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
