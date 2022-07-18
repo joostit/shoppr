@@ -43,6 +43,17 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'test -Pcomponent-tests surefire:test'
   
+- task: AzureMysqlDeployment@1
+  inputs:
+    azureSubscription: 'DevOps PayAsYouGo Shoppr'
+    ServerName: 'dbmysql-shoppr.mysql.database.azure.com'
+    SqlUsername: 'joost'
+    SqlPassword: 'DuoDiscus!'
+    TaskNameSelector: 'SqlTaskFile'
+    SqlFile: 'sql/test_db_init.sql'
+    IpDetectionMethod: 'AutoDetect'
+
+
 - task: CopyFiles@2
   displayName: 'Copy Build result Artifact staging directory'
   inputs:
