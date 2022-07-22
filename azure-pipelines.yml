@@ -42,7 +42,7 @@ steps:
 
 
 - task: Maven@3
-  enabled: true
+  enabled: false
   displayName: 'Component tests'
   inputs:
     mavenPomFile: 'pom.xml'
