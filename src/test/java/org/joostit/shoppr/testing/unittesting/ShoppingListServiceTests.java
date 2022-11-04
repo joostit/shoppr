@@ -42,6 +42,7 @@ public class ShoppingListServiceTests {
 
     @Test
     void getAllReturnsAllShoppingLists() {
+
         List<ShoppingList> fakeShoppingLists = new ArrayList<>();
         fakeShoppingLists.add(new ShoppingList("list0"));
         fakeShoppingLists.add(new ShoppingList("list1"));

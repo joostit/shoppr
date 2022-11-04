@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class ShoppingListDtoConverterTests {
 
     @Test
-    void TestToListItemToDto(){
+    void TestListItemToDto(){
 
         // Arrange
         ShoppinglistConverter converter = new ShoppinglistConverter();
